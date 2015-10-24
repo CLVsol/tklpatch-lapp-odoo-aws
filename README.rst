@@ -93,8 +93,6 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 
 #. Change manually, using Webmin, the passwords for the accounts:
 
-	* postgres (Linux)
-	* postgres (PostgreSQL)
 	* openerp (Linux)
 	* openuser (PostgreSQL)
 
