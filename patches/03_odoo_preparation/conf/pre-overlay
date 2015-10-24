@@ -1,0 +1,26 @@
+#!/bin/bash -ex
+# executed before apply-overlay
+
+OPENERP_PASS=openerp
+OPENERP_DIR=/opt/openerp
+
+echo "------------------------"
+echo " Create a role openuser "
+echo "------------------------"
+su -c - postgres "createuser openuser --no-superuser --createdb --no-createrole" 
+cat > /tmp/openuser_changepass.sql <<"EOF"
+ALTER USER openuser WITH PASSWORD 'openuser';
+EOF
+su -c - postgres "psql template1 -U postgres -f /tmp/openuser_changepass.sql"
+
+echo "-------------------------"
+echo " Add system user openerp "
+echo "-------------------------"
+echo | adduser --disabled-password openerp
+usermod -p $(echo $OPENERP_PASS | openssl passwd -1 -stdin) openerp
+
+echo "--------------------------"
+echo " Create openerp directory "
+echo "--------------------------"
+mkdir $OPENERP_DIR
+chown -R openerp:openerp $OPENERP_DIR
