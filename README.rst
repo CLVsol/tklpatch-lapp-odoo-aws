@@ -32,7 +32,7 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 		443(HTTPS)       0.0.0.0/0
 		12320(Web Shell) 0.0.0.0/0  (disable)
 		12321(Webmin)    0.0.0.0/0  (disable)
-		12322(Custom)    0.0.0.0/0  (disable)
+		12322(Adminer)   0.0.0.0/0  (disable)
 
 #. `Disable Password-based Login <http://aws.amazon.com/articles/1233?_encoding=UTF8&jiveRedirect=1>`_:
 
@@ -114,7 +114,7 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 		8069(Odoo)        0.0.0.0/0  (disable)
 		12320(Web Shell)  0.0.0.0/0  (disable)
 		12321(Webmin)     0.0.0.0/0  (disable)
-		12322(PHPMyAdmin) 0.0.0.0/0  (disable)
+		12322(Adminer)    0.0.0.0/0  (disable)
 		12325(Odoo)       0.0.0.0/0
 
 #. To stop and start the Odoo server, use the following commands (as root):
@@ -124,3 +124,10 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 		/opt/openerp/openerp.init stop
 
 		/opt/openerp/openerp.init start
+
+	::
+
+		cd /opt/openerp/odoo
+		su openerp
+		./openerp-server -c openerp-server-man.conf
+
