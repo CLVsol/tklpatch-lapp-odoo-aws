@@ -47,6 +47,11 @@
                         src="images/adminer.png"/>Adminer</a>
                     </div>
                     <div>
+                       <a href="https://<?php print
+                       $_SERVER{'SERVER_NAME'}; ?>/web"><img
+                        src="images/odoo.png"/>Odoo Main (https)</a>
+                    </div>
+                    <div>
                         <a href="https://<?php print
                         $_SERVER{'HTTP_HOST'}; ?>:12325/web"><img
                         src="images/odoo.png"/>Odoo (https)</a>
