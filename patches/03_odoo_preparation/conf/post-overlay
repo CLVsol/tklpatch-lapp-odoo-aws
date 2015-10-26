@@ -35,15 +35,15 @@ cd ..
 echo "------------------------"
 echo " Make SSL work properly "
 echo "------------------------"
-a2enmod ssl proxy_http headers rewrite
-service apache2 restart
+#a2enmod ssl proxy_http headers rewrite
+#service apache2 restart
 #a2ensite openerp-ssl
 #/etc/init.d/apache2 restart
 
 # Enable needed modules
-#a2enmod proxy_http headers rewrite		
+a2enmod proxy_http headers rewrite		
 
 # Configure sites
-#a2dissite 000-default
-#a2ensite odoo.conf
-#service apache2 reload
+a2dissite 000-default
+a2ensite odoo.conf
+service apache2 reload

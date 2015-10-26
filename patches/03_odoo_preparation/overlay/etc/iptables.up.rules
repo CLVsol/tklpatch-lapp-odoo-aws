@@ -23,5 +23,4 @@ COMMIT
 -A INPUT -p tcp -m tcp --dport 12320 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 12321 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 12322 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 12325 -j ACCEPT
 COMMIT
