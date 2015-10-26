@@ -115,7 +115,6 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 		12320(Web Shell)  0.0.0.0/0  (disable)
 		12321(Webmin)     0.0.0.0/0  (disable)
 		12322(Adminer)    0.0.0.0/0  (disable)
-		12325(Odoo)       0.0.0.0/0
 
 #. To stop and start the Odoo server, use the following commands (as root):
 
