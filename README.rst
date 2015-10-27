@@ -120,13 +120,13 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 
 	::
 
-		/opt/openerp/openerp.init stop
+		/etc/init.d/openerp-server stop
 
-		/opt/openerp/openerp.init start
+		/etc/init.d/openerp-server start
 
 	::
 
 		cd /opt/openerp/odoo
 		su openerp
-		./openerp-server -c openerp-server-man.conf
+		./openerp-server -c /etc/odoo/openerp-server-man.conf
 
