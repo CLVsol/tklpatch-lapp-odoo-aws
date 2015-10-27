@@ -51,11 +51,6 @@
                        $_SERVER{'SERVER_NAME'}; ?>/web"><img
                         src="images/odoo.png"/>Odoo Main (https)</a>
                     </div>
-                    <div>
-                        <a href="http://<?php print
-                        $_SERVER{'HTTP_HOST'}; ?>:8069"><img
-                        src="images/odoo.png"/>Odoo (http)</a>
-                    </div>
 
                     <div></div>
                     <div></div>
