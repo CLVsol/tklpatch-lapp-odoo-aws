@@ -3,6 +3,8 @@ tklpatch-lapp-odoo-aws
 
 This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `TurnKey LAPP <http://www.turnkeylinux.org/lapp>`_ appliance, using the Amazon Web Services (AWS) EC2 infrastructure.
 
+This project is based on `Turnkey Odoo Appliance <https://github.com/turnkeylinux-apps/odoo>`_.
+
 #. Create a new Key Pair:
 
 	* Key pair name: **tkl-lapp-odoo-aws**
