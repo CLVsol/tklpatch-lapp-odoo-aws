@@ -1,14 +1,6 @@
 #!/bin/bash -ex
 # executed before apply-overlay
 
-# ODOO_DIR=/opt/openerp/odoo
-
-# echo "--------------"
-# echo " Install Odoo "
-# echo "--------------"
-# git clone https://github.com/odoo/odoo.git $ODOO_DIR --branch 8.0
-# chown -R openerp:openerp $ODOO_DIR
-
 # Set variables
 #
  
@@ -78,7 +70,9 @@ ln -s /usr/local/bin/wkhtmltoimage /usr/bin/wkhtmltoimage
 
 # Install Odoo from GIT repo
 #
+# git clone https://github.com/odoo/odoo.git $ODOO_DIR --branch 8.0
 git clone https://github.com/odoo/odoo.git --branch 8.0 --depth=1 $ODOO_DIR
+# chown -R openerp:openerp $ODOO_DIR
 
 
 # Set admin password to random value for now
