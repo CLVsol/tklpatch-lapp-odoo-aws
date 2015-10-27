@@ -64,16 +64,6 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 		cd /root
 		tklpatch-apply / clvsol_tklpatch-lapp-odoo-aws
 
-#. Change manually, using Webmin, the passwords for the accounts:
-
-	* openerp (Linux)
-	* openuser (PostgreSQL)
-
-#. Change manually, editing the Odoo configuration files (/opt/openerp/odoo/**openerp-server.conf**, /opt/openerp/odoo/**openerp-server_man.conf**), the passwords for the accounts:
-
-	* admin (Odoo server - admin_passwd)
-	* openuser (account on PostgreSQL - db_password)
-
 #. `Disable Password-based Login <http://aws.amazon.com/articles/1233?_encoding=UTF8&jiveRedirect=1>`_:
 
 	Log in to your instance as root and edit the ssh daemon configuration file "**/etc/ssh/sshd_config**"
@@ -101,20 +91,20 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 		sed -i "s|127.0.1.1 \(.*\)|127.0.1.1 $HOSTNAME|" /etc/hosts
 		/etc/init.d/hostname.sh start
 
-#. Update the Security Group:
+#. Copy file "/etc/odoo/openerp-server.conf" into "/etc/odoo/openerp-server-man.conf". Edit the file "/etc/odoo/openerp-server-man.conf":
 
-	Security Group: tkl-lapp-odoo-aws (Inbound)::
+	::
 
-		Port (Service)    Source
-		---------------------------------------
-		N/A(PING)         0.0.0.0/0
-		22(SSH)           0.0.0.0/0
-		80(HTTP)          0.0.0.0/0
-		443(HTTPS)        0.0.0.0/0
-		8069(Odoo)        0.0.0.0/0  (disable)
-		12320(Web Shell)  0.0.0.0/0  (disable)
-		12321(Webmin)     0.0.0.0/0  (disable)
-		12322(Adminer)    0.0.0.0/0  (disable)
+			#logfile = False
+			logfile = /var/log/odoo/openerp-server.log
+
+	::
+
+			logfile = False
+			#logfile = /var/log/odoo/openerp-server.log
+
+
+#. (Optional) Reboot the instance "tkl-lapp-odoo-aws".
 
 #. To stop and start the Odoo server, use the following commands (as root):
 
@@ -129,4 +119,3 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 		cd /opt/openerp/odoo
 		su openerp
 		./openerp-server -c /etc/odoo/openerp-server-man.conf
-
