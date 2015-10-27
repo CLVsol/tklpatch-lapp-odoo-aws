@@ -34,33 +34,6 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 		12321(Webmin)    0.0.0.0/0  (disable)
 		12322(Adminer)   0.0.0.0/0  (disable)
 
-#. `Disable Password-based Login <http://aws.amazon.com/articles/1233?_encoding=UTF8&jiveRedirect=1>`_:
-
-	Log in to your instance as root and edit the ssh daemon configuration file "**/etc/ssh/sshd_config**"
-
-	Find the line::
-
-		PasswordAuthentication yes
-
-	and change it to::
-
-		PasswordAuthentication no
-
-	Save the file and restart sshd::
-
-		/etc/init.d/ssh restart
-
-	**You will now only be able to log in with an ssh key.**
-
-#. Update host name, executing the following commands:
-
-	::
-
-		HOSTNAME=tkl-lapp-odoo-aws
-		echo "$HOSTNAME" > /etc/hostname
-		sed -i "s|127.0.1.1 \(.*\)|127.0.1.1 $HOSTNAME|" /etc/hosts
-		/etc/init.d/hostname.sh start
-
 #. Upgrade the software:
 
 	::
@@ -100,6 +73,33 @@ This project will help you install `Odoo 8.0 <https://www.odoo.com/>`_ over a `T
 
 	* admin (Odoo server - admin_passwd)
 	* openuser (account on PostgreSQL - db_password)
+
+#. `Disable Password-based Login <http://aws.amazon.com/articles/1233?_encoding=UTF8&jiveRedirect=1>`_:
+
+	Log in to your instance as root and edit the ssh daemon configuration file "**/etc/ssh/sshd_config**"
+
+	Find the line::
+
+		PasswordAuthentication yes
+
+	and change it to::
+
+		PasswordAuthentication no
+
+	Save the file and restart sshd::
+
+		/etc/init.d/ssh restart
+
+	**You will now only be able to log in with an ssh key.**
+
+#. Update host name, executing the following commands:
+
+	::
+
+		HOSTNAME=tkl-lapp-odoo-aws
+		echo "$HOSTNAME" > /etc/hostname
+		sed -i "s|127.0.1.1 \(.*\)|127.0.1.1 $HOSTNAME|" /etc/hosts
+		/etc/init.d/hostname.sh start
 
 #. Update the Security Group:
 
